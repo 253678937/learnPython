@@ -94,8 +94,118 @@ print "arrStr = ", arrStr   # arrStr =  ['z', 'h', 'a', 'n', 'g', 's', 'a', 'n']
 str2 = "".join(arrStr)
 print "str2 = ", str2       # str2 =  zhangsan
 
-str3 = "".join(arr)
-print "str3 = ", str3       # 没有输出
+#str3 = "".join(arr)
+#print "str3 = ", str3       # 没有输出
 
 
+# ====================== 修改序列中的值 =====================
 
+arr = [0,1,2,3,4,5,6,7,8,9]
+
+#修改指定位置的值
+arr = [0,1,2,3,4,5,6,7,8,9]
+arr[0] = 999
+print "arr = ", arr         # arr =  [999, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#使用片段修改多个值
+arr = [0,1,2,3,4,5,6,7,8,9]
+arr[0:3] = ["a", "b", "c", "d"]
+print "arr = ", arr         # arr =  ['a', 'b', 'c', 'd', 3, 4, 5, 6, 7, 8, 9]
+
+#使用片段插入一段值
+arr = [0,1,2,3,4,5,6,7,8,9]
+arr[3:3] = ["a", "b", "c", "d"]
+print "arr = ", arr         # arr =  [0, 1, 2, 'a', 'b', 'c', 'd', 3, 4, 5, 6, 7, 8, 9]
+
+#删除指定的数据
+arr = [0,1,2,3,4,5,6,7,8,9]
+del arr[3]
+print "arr = ", arr         # arr =  [0, 1, 2, 4, 5, 6, 7, 8, 9]
+
+#删除指定的片段
+arr = [0,1,2,3,4,5,6,7,8,9]
+del arr[3:7]
+print "arr = ", arr         # arr =  [0, 1, 2, 7, 8, 9]
+
+#删除指定的片段 + 步长
+arr = [0,1,2,3,4,5,6,7,8,9]
+del arr[::2]
+print "arr = ", arr         # arr =  [1, 3, 5, 7, 9]
+
+
+# ====================== 列表方法 ======================
+
+# append 在末尾添加新的对象,只能添加单个数据，不能添加列表
+arr1 = [0,1,2,3,4]
+arr1.append("a")
+print "arr1 = ", arr1         # arr1 =  [0, 1, 2, 3, 4, 'a']
+
+# extend 在末尾添加新的列表
+arr2 = [0,1,2,3,4]
+arr3 = ["a","b","c"]
+arr2.extend(arr3)
+print "arr2 = ", arr2       # arr2 =  [0, 1, 2, 3, 4, 'a', 'b', 'c']
+
+# insert 在列表中插入数据
+arr4 = [0,1,2,3,4]
+arr4.insert(3, "aaaa")
+print "arr4 = ", arr4       # arr4 =  [0, 1, 2, 'aaaa', 3, 4]
+
+# count 统计数据出现的次数
+arr5 = [0,1,2,3,4,0,1,2,0,1,2,3,4]
+num = arr5.count(4)
+print "num = ", num         # num =  2
+
+# index 从列表中查找某个值，返回其第一次出现的位置的索引,如果找不到，则会出现异常
+arr6 = [0,1,2,3,4,0,1,2,0,1,2,3,4]
+idx = arr6.index(4)
+print "idx = ", idx         # idx =  4
+
+#idx = arr.index(5)
+#print "idx = ", idx
+
+
+# pop 移除列表的一个元素，并返回该值，如果不指定位置，则默认是最后一个
+arr7 = [0,1,2,3]
+num1 = arr7.pop()
+print "num1 = ", num1       # num1 =  3
+print "arr7 = ", arr7       # arr7 =  [0, 1, 2]
+
+arr8 = [0,1,2,3]
+num2 = arr8.pop(2)
+print "num2 = ", num2       # num2 =  2
+print "arr8 = ", arr8       # arr8 =  [0, 1, 3]
+
+# remove 移除列表中某个值的第一个匹配项
+arr9 = [0,1,2,3,2,4,5,]
+arr9.remove(2)
+print "arr9 = ", arr9       # arr9 =  [0, 1, 3, 2, 4, 5]
+
+# reverse 将列表中的值反向存放
+print " --------- reverse --------- "
+arr = [0,1,2,3]
+arr.reverse();
+print "arr = ", arr         # arr =  [3, 2, 1, 0]
+
+# sort 排序
+print " --------- sort --------- "
+arr = [0,1,2,3,2,4,5,]
+arr.sort()
+print "arr = ", arr         # arr =  [0, 1, 2, 2, 3, 4, 5]
+
+# 排序是直接改变原来的列表，排序完成后原来的列表的数据就变化了
+# 如果想要对一个列表排序，完了之后还想要原来的列表的数据
+# 就需要先拷贝一份数据，对拷贝的数据进行排序
+
+arr1 = [0,1,2,3,2,4,5,]
+arr2 = arr1[:]      # 如果直接使用 arr2 = arr1, 那么两者表示的是同一个对象，改变一个另一个也会受影响
+arr2.sort()
+print "arr1 = ", arr1
+print "arr2 = ", arr2
+
+# sorted 对一个列表进行排序，并返回一个已排序的列表,原来的列表也被改变，但是新的列表和原来的列表是两个对象
+print " --------- sorted --------- "
+arr1 = [0,1,2,3,2,4,5]
+arr2 = sorted(arr1)
+print "arr1 = ", arr1
+print "arr2 = ", arr2
