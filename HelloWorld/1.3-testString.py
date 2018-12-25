@@ -10,3 +10,8 @@ print "aaa" * 3         # aaaaaaaaa
 #关于单双引号
 print 'It\'s Mike\'s book'
 print "It's Mike's book"
+
+text = "zhou zhouze zhouzebing"
+text2 = text.replace("zhou", "zhang")
+
+print text2

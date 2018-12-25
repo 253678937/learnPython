@@ -27,5 +27,37 @@ print math.floor(1.8)
 #向上取整
 print math.ceil(1.8)
 
+print '============= 分割线 ============='
 
+#列表作为参数传递
+def append(args = []):
+    args.append(0)
+    print(args)
+
+append()
+append([1])
+append()
+
+print '============= 分割线 ============='
+
+#传递可变参数
+def func(*args):
+    print args
+    print args[0]
+    print args[1]
+
+func([1,2,3], "name")
+
+print '============= 分割线 ============='
+
+#词典作为参数传递
+def func2(*t, **d):
+    keys = d.keys()
+    print keys
+
+    for key in keys:
+        print key
+
+
+func2("aa", "bb", one="1", two="2'", three="3")
 
